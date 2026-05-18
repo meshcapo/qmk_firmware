@@ -84,39 +84,44 @@ enum custom_keycodes {
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
+  // Base layer
   [0] = LAYOUT(
     LG_ESC,   KC_Q,     KC_W,     KC_E,     KC_R,      KC_T,               KC_Y,     KC_U,     KC_I,     KC_O,     KC_P,     KC_BSPC,
-    LS_TAB,   KC_A,     KC_S,     KC_D,     KC_F,      KC_G,               KC_H,     KC_J,     KC_K,     KC_L,     KC_SCLN,  LCA_ENT,
+    LS_TAB,   KC_A,     KC_S,     KC_D,     KC_F,      KC_G,               KC_H,     KC_J,     KC_K,     KC_L,     KC_SCLN,  KC_ENT,
     KC_LCTL,  KC_Z,     KC_X,     KC_C,     KC_V,      KC_B,               KC_N,     KC_M,     KC_COMM,  KC_DOT,   KC_SLSH,  RS_QUOT,
                                                       LAYER1,    LAYER3,   LAYER2
   ),
 
+  // Number layer + email macros
   [1] = LAYOUT(
-    KC_TILD,  KC_1,     KC_2,     KC_3,     KC_4,      KC_5,               KC_6,     KC_7,     KC_8,     KC_9,     KC_0,     PASSWD1,
-    UG_TOGG,  PASSWD2,  _______,  _______,  _______,   GTIMAIL,            ZENPREV,  _______,  _______,  ZENNEXT,  _______,  _______,
-    _______,  KC_ESC,   _______,  _______,  _______,   BLDONLY,            NUMBER,   UCMAIL,   GMAIL1,   GMAIL2,   _______,  QK_BOOT,
-                                                       _______,  KC_SPC,   _______
-  ),
-
-  [2] = LAYOUT(
-    KC_GRV,   KC_EXLM,  KC_AT,    KC_HASH,  KC_DLR,    KC_PERC,            KC_CIRC,  KC_AMPR,  KC_ASTR,  KC_LPRN,  KC_RPRN,  KC_PGUP,
-    _______,  _______,  _______,  DLTBRKS,  _______,   _______,            KC_LEFT,  KC_DOWN,  KC_UP,    KC_RGHT,  _______,  KC_PGDN,
-    _______,  _______,  _______,  _______,  _______,   _______,            _______,  _______,  _______,  _______,  KC_BSLS,  _______,
-                                                       _______,  KC_SPC,   _______
-  ),
-
-  [3] = LAYOUT(
-    _______,  KILLWIN, _______,  _______,  VSPYTHN,   TASKMGR,             _______,  _______,  _______,  _______,  KC_MINS,  KC_EQL,
-    _______,  _______, _______,  _______,  _______,   GT_ISE,              PRVSRCH,  _______,  _______,  NXTSRCH,  KC_UNDS,  KC_PLUS,
-    _______,  _______, _______,  _______,  _______,   BUILD,               NOBUILD,  _______,  _______,  _______,  _______,  UNLOCK,
+    KC_TILD,  KC_1,     KC_2,     KC_3,     KC_4,     KC_5,                KC_6,     KC_7,     KC_8,     KC_9,     KC_0,     KC_HOME,
+    UG_TOGG,  PASSWD2,  _______,  _______,  _______,  GTIMAIL,             ZENPREV,  _______,  _______,  ZENNEXT,  _______,  KC_END,
+    _______,  KC_ESC,   _______,  _______,  _______,  _______,             NUMBER,   UCMAIL,   GMAIL1,   GMAIL2,   _______,  QK_BOOT,
                                                       _______,   KC_SPC,   _______
   ),
 
+  // Symbol layer + navigation
+  [2] = LAYOUT(
+    KC_GRV,   KC_EXLM,  KC_AT,    KC_HASH,  KC_DLR,   KC_PERC,             KC_CIRC,  KC_AMPR,  KC_ASTR,  KC_LPRN,  KC_RPRN,  KC_DEL,
+    _______,  PASSWD1,  _______,  _______,  _______,  _______,             KC_LEFT,  KC_DOWN,  KC_UP,    KC_RGHT,  _______,  _______,
+    _______,  _______,  _______,  _______,  _______,  BLDONLY,             _______,  _______,  _______,  _______,  KC_BSLS,  _______,
+                                                      _______,   KC_SPC,   _______
+  ),
+
+  // Windows layer
+  [3] = LAYOUT(
+    LOCKSCR,  KILLWIN,  _______,  _______,  VSPYTHN,  TASKMGR,             _______,  UNCOMMT,  GT_ISE,   _______,  KC_MINS,  KC_EQL,
+    _______,  _______,  _______,  DLTBRKS,  _______,  _______,             PRVSRCH,  _______,  _______,  NXTSRCH,  KC_UNDS,  KC_PLUS,
+    _______,  _______,  _______,  COMMENT,  _______,  BUILD,               NOBUILD,  _______,  _______,  _______,  _______,  UNLOCK,
+                                                      _______,   KC_SPC,   _______
+  ),
+
+  // Linux layer + function keys
   [4] = LAYOUT_reviung39(
-    _______,  WSPACE1,  WSPACE2,  WSPACE3,  WSPACE4,   WSPACE5,            WSPACE6,  WSPACE7,  WSPACE8,  WSPACE9,  WSPACE0,  KC_DEL,
-    _______,  MVESPC1,  MVESPC2,  MVESPC3,  MVESPC4,   MVESPC5,            MVESPC6,  MVESPC7,  MVESPC8,  MVESPC9,  MVESPC0,  _______,
-    KC_F1,    KC_F2,    KC_F3,    KC_F4,    KC_F5,     KC_F6,              KC_F7,    KC_F8,    KC_F9,    KC_F10,   KC_F11,   KC_F12,
-                                                       _______,  _______,  _______
+    _______,  WSPACE1,  WSPACE2,  WSPACE3,  WSPACE4,  WSPACE5,             WSPACE6,  WSPACE7,  WSPACE8,  WSPACE9,  WSPACE0,  KC_PGUP,
+    _______,  MVESPC1,  MVESPC2,  MVESPC3,  MVESPC4,  MVESPC5,             MVESPC6,  MVESPC7,  MVESPC8,  MVESPC9,  MVESPC0,  KC_PGDN,
+    KC_F1,    KC_F2,    KC_F3,    KC_F4,    KC_F5,    KC_F6,               KC_F7,    KC_F8,    KC_F9,    KC_F10,   KC_F11,   KC_F12,
+                                                      _______,   _______,  _______
   )
 };
 
