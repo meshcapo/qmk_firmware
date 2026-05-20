@@ -214,7 +214,7 @@ bool process_record_user (uint16_t keycode, keyrecord_t *record) {
     case UNLOCK:
       if (record->event.pressed) {
         // when UNLOCK is pressed
-        SEND_STRING(SS_LCTL(SS_LSFT(SS_LALT(SS_TAP(X_DEL)))) SS_DELAY(200) "180691");
+        SEND_STRING(SS_LCTL(SS_LSFT(SS_LALT(SS_TAP(X_DEL)))) SS_DELAY(1000) "180691");
       } else {
         //when UNLOCK is released
       }
